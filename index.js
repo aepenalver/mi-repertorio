@@ -18,8 +18,14 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/canciones', async (req, res) => {
+  const canciones = await getTodasLasCanciones();
+  return res.json(canciones);
+});
+
 app.post('/canciones', async (req, res) => {
   const { titulo, artista, tono } = req.body;
+
   const newCancion = {
     id: nanoid(),
     titulo,
@@ -34,11 +40,6 @@ app.post('/canciones', async (req, res) => {
   return res
     .status(201)
     .json({ message: '¡Canción agregada con éxito!', newCancion });
-});
-
-app.get('/canciones', async (req, res) => {
-  const canciones = await getTodasLasCanciones();
-  return res.json(canciones);
 });
 
 app.put('/canciones/:id', async (req, res) => {

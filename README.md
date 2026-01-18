@@ -1,4 +1,4 @@
-# Mi Repeertorio
+# Mi Repertorio
 
 Desafío 2 para mostrar conocimientos de desarrollo con Node.Js.
 
@@ -34,7 +34,7 @@ cd mi-repertorio
 
 ```
 npm install
-npm run dev
+npm run start
 ```
 
 ## Uso
